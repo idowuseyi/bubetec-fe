@@ -28,6 +28,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Setup Nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+      - name: Install dependencies
+        run: npm install
+      - name: Install Vercel CLI
+        run: npm install -g vercel
       - name: Deploy to Vercel Action
         uses: BetaHuhn/deploy-to-vercel-action@latest
         with:
